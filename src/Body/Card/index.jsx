@@ -1,7 +1,16 @@
 import React from "react";
-import { Button } from "antd";
+import Footer from "../Footer";
 
-const Card = ({ title, year, genre, rating, description, img, id }) => {
+const Card = ({
+  title,
+  year,
+  genre,
+  rating,
+  description,
+  img,
+  onDelete,
+  id,
+}) => {
   return (
     <div className="w-[300px] h-[500px] border-2">
       <img src={img} alt="alt" />
@@ -15,10 +24,7 @@ const Card = ({ title, year, genre, rating, description, img, id }) => {
         <h3>{id}</h3>
       </div>
       <p className="pl-[10px] pr-[10px]">{description}</p>
-      <div className="flex justify-between mt-4 pl-[20px] pr-[20px] ">
-        <Button danger>Edit</Button>
-        <Button type="primary">Delete</Button>
-      </div>
+      <Footer onDelete={onDelete} id={id} />
     </div>
   );
 };
